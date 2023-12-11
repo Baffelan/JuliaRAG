@@ -1,0 +1,28 @@
+==> 2023-12-11 14:03:26 <==
+# cmd: /home/stirling/.julia/artifacts/87052ac9aec71548f804b30280151288cb1ed40e/bin/micromamba -r /home/stirling/.julia/scratchspaces/0b3b1443-0f03-428d-bdfb-f27f9c1191ea/root create -y -p /home/stirling/.julia/dev/JuliaRAG/.CondaPkg/env --override-channels --no-channel-priority libstdcxx-ng[version='>=3.4,<13.0'] python[version='>=3.7,<4',channel='conda-forge',build='*cpython*'] -c conda-forge
+# conda version: 3.8.0
++https://conda.anaconda.org/conda-forge/linux-64::libstdcxx-ng-12.3.0-h0f45ef3_3
++https://conda.anaconda.org/conda-forge/linux-64::_libgcc_mutex-0.1-conda_forge
++https://conda.anaconda.org/conda-forge/linux-64::ld_impl_linux-64-2.40-h41732ed_0
++https://conda.anaconda.org/conda-forge/linux-64::ca-certificates-2023.11.17-hbcca054_0
++https://conda.anaconda.org/conda-forge/linux-64::libgomp-13.2.0-h807b86a_3
++https://conda.anaconda.org/conda-forge/linux-64::_openmp_mutex-4.5-2_gnu
++https://conda.anaconda.org/conda-forge/linux-64::libgcc-ng-13.2.0-h807b86a_3
++https://conda.anaconda.org/conda-forge/linux-64::openssl-3.2.0-hd590300_1
++https://conda.anaconda.org/conda-forge/linux-64::libzlib-1.2.13-hd590300_5
++https://conda.anaconda.org/conda-forge/linux-64::libnsl-2.0.1-hd590300_0
++https://conda.anaconda.org/conda-forge/linux-64::libffi-3.4.2-h7f98852_5
++https://conda.anaconda.org/conda-forge/linux-64::bzip2-1.0.8-hd590300_5
++https://conda.anaconda.org/conda-forge/linux-64::ncurses-6.4-h59595ed_2
++https://conda.anaconda.org/conda-forge/linux-64::libuuid-2.38.1-h0b41bf4_0
++https://conda.anaconda.org/conda-forge/linux-64::libexpat-2.5.0-hcb278e6_1
++https://conda.anaconda.org/conda-forge/linux-64::xz-5.2.6-h166bdaf_0
++https://conda.anaconda.org/conda-forge/linux-64::tk-8.6.13-noxft_h4845f30_101
++https://conda.anaconda.org/conda-forge/linux-64::libsqlite-3.44.2-h2797004_0
++https://conda.anaconda.org/conda-forge/linux-64::readline-8.2-h8228510_1
++https://conda.anaconda.org/conda-forge/noarch::tzdata-2023c-h71feb2d_0
++https://conda.anaconda.org/conda-forge/linux-64::python-3.12.0-hab00c5b_0_cpython
++https://conda.anaconda.org/conda-forge/noarch::wheel-0.42.0-pyhd8ed1ab_0
++https://conda.anaconda.org/conda-forge/noarch::setuptools-68.2.2-pyhd8ed1ab_0
++https://conda.anaconda.org/conda-forge/noarch::pip-23.3.1-pyhd8ed1ab_0
+# update specs: ["libstdcxx-ng[version='>=3.4,<13.0']", "conda-forge::python[version='>=3.7,<4',build=*cpython*]"]
