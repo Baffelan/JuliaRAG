@@ -1,0 +1,8 @@
+[deps]
+"pdfminer.six" = ""
+cmake = ""
+chromadb = ""
+openai = ""
+langchain = ""
+pdf2image = ""
+pikepdf = ""
