@@ -19,7 +19,11 @@ function query_llm(query::String, search_space::Tuple, k::Int)
     sys.path.insert(1, './src')
     from os import listdir
     from os import getcwd
-    
+    import os
+
+    abspath = os.path.abspath(__file__)
+    dname = os.path.dirname(abspath)
+    os.chdir(dname)
     print(getcwd())
     import model_setup
     model_setup
