@@ -14,11 +14,13 @@ function query_llm(query::String, search_space::Tuple, k::Int)
 
     relevant_text = join(relevant_chunks, "\n")
 
-    model_setup = @pyexec """import sys
+    @pyexec """import sys
     # caution: path[0] is reserved for script path (or '' in REPL)
     sys.path.insert(1, './src')
-    """
-    model_setup = pyimport("model_setup")
+    import model_setup
+    model_setup
+    """ => model_setup
+    #model_setup = pyimport("model_setup")
     model = model_setup.setup_chat_model(query, "gpt-4")
     model(PyDict(Dict(pystr("question")=> pystr(relevant_text))))
 end
