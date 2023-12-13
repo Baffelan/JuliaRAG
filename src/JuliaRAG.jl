@@ -1,6 +1,4 @@
 module JuliaRAG
-
-# Write your package code here.
     using PythonCall
     using CondaPkg
     using Distances
