@@ -24,6 +24,7 @@ function query_llm(query::String, search_space::Tuple, k::Int)
     abspath = os.path.abspath(__file__)
     dname = os.path.dirname(abspath)
     os.chdir(dname)
+    print(__file__)
     print(getcwd())
     import model_setup
     model_setup
