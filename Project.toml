@@ -10,6 +10,7 @@ NearestNeighbors = "b8a86587-4115-5ab1-83bc-aa920d37bbce"
 PythonCall = "6099a3de-0909-46bc-b1f4-468b9a2dfc0d"
 
 [compat]
+PythonCall = "0.9"
 NearestNeighbors = "0.4"
 CondaPkg = "0.2"
 julia = "1"
