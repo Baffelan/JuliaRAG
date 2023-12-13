@@ -3,6 +3,7 @@
 [![Build Status](https://github.com/StirlingSmith/JuliaRAG.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/StirlingSmith/JuliaRAG.jl/actions/workflows/CI.yml?query=branch%3Amain)
 
 # Example
+```julia
 using JuliaRAG # Available through Baito registry
 using PythonCall
 emb_space = embed_pdf("apple_k8_buyback1.pdf")
@@ -30,3 +31,4 @@ What currency is being used?
 """, emb_space, 5)
 
 pyconvert(String, response["text"])
+```
