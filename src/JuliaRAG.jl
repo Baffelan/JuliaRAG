@@ -12,9 +12,11 @@ module JuliaRAG
     include("embed_pdf.jl")
     include("make_vector_space.jl")
     include("query_llm.jl")
+    include("install_python_packs.jl")
 
     export embed_pdf
     export query_llm
+    export install_python_packs
 
 end
 
