@@ -18,8 +18,9 @@ function query_llm(query::String, search_space::Tuple, k::Int)
     # caution: path[0] is reserved for script path (or '' in REPL)
     sys.path.insert(1, './src')
     from os import listdir
+    from os import getcwd
     
-    print(listdir('./src'))
+    print(getcwd())
     import model_setup
     model_setup
     """ => model_setup
