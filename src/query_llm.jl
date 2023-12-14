@@ -13,18 +13,18 @@ function query_llm(query::String, search_space::Tuple, k::Int)
     relevant_chunks = search_space[2][idx]
 
     relevant_text = join(relevant_chunks, "\n")
-
+    println(Base.source_path())
     @pyexec """import sys
     # caution: path[0] is reserved for script path (or '' in REPL)
     sys.path.insert(1, './src')
-    from os import listdir
+    import os
     from os import getcwd
     import os
 
-    abspath = os.path.abspath(__file__)
-    dname = os.path.dirname(abspath)
-    os.chdir(dname)
-    print(__file__)
+    # #abspath = os.path.abspath(__file__)
+    # dname = os.path.dirname(abspath)
+    # os.chdir(dname)
+    print(os.path.realpath())
     print(getcwd())
     import model_setup
     model_setup
@@ -33,3 +33,21 @@ function query_llm(query::String, search_space::Tuple, k::Int)
     model = model_setup.setup_chat_model(query, "gpt-4")
     model(PyDict(Dict(pystr("question")=> pystr(relevant_text))))
 end
+
+
+# @pyexec """import sys
+# # caution: path[0] is reserved for script path (or '' in REPL)
+# sys.path.insert(1, './src')
+# import os
+# from os import getcwd
+# import os
+
+# # #abspath = os.path.abspath(__file__)
+# # dname = os.path.dirname(abspath)
+# # os.chdir(dname)
+# print(os.path.realpath())
+# print(getcwd())
+# import model_setup
+# model_setup
+# """ => model_setup
+# Base.source_path()
