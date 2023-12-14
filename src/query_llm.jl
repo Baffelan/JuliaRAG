@@ -13,19 +13,12 @@ function query_llm(query::String, search_space::Tuple, k::Int)
     relevant_chunks = search_space[2][idx]
 
     relevant_text = join(relevant_chunks, "\n")
-    println(pathof(JuliaRAG))
-    @pyexec """import sys
+    path = match(r"^(.*[\\\/])[^\\\/]*$", pathof(JuliaRAG))[1]
+    @pyexec (path=path)=>"""import sys
     # caution: path[0] is reserved for script path (or '' in REPL)
-    sys.path.insert(1, './src')
-    import os
-    from os import getcwd
-    import os
+    sys.path.insert(1, path)
 
-    # #abspath = os.path.abspath(__file__)
-    # dname = os.path.dirname(abspath)
-    # os.chdir(dname)
-    print(os.path.realpath())
-    print(getcwd())
+    print(path)
     import model_setup
     model_setup
     """ => model_setup
@@ -33,8 +26,6 @@ function query_llm(query::String, search_space::Tuple, k::Int)
     model = model_setup.setup_chat_model(query, "gpt-4")
     model(PyDict(Dict(pystr("question")=> pystr(relevant_text))))
 end
-
-
 # @pyexec """import sys
 # # caution: path[0] is reserved for script path (or '' in REPL)
 # sys.path.insert(1, './src')
