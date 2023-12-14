@@ -1,7 +1,7 @@
 name = "JuliaRAG"
 uuid = "7fb97b74-f14f-400d-bab7-a2fb2c984d97"
 authors = ["Connor Smith"]
-version = "1.0.13-DEV"
+version = "1.0.14-DEV"
 
 [deps]
 CondaPkg = "992eb4ea-22a4-4c89-a5bb-47a3300528ab"
