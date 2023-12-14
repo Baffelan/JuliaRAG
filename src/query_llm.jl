@@ -13,7 +13,7 @@ function query_llm(query::String, search_space::Tuple, k::Int)
     relevant_chunks = search_space[2][idx]
 
     relevant_text = join(relevant_chunks, "\n")
-    println(Base.source_path())
+    println(pathof(JuliaRAG))
     @pyexec """import sys
     # caution: path[0] is reserved for script path (or '' in REPL)
     sys.path.insert(1, './src')
