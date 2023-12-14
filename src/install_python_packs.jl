@@ -19,6 +19,8 @@ function install_python_packs()
     os.system("pip install Cython")
     os.system("pip install pypdf")
     os.system("pip install tiktoken")
-    os.system("openai")
+    os.system("pip install openai")
+    os.system("pip install sentence_transformers")
+
     """
 end
