@@ -9,6 +9,10 @@ function parse_pdf(path::String)
     doc = unstructured.UnstructuredFileLoader(path)
     text = doc.load()
     text = text[0].page_content
+    tiktoken = pyimport("tiktoken")
+    enc = tiktoken.encoding_for_model("gpt-4-1106-preview")    
+    println("Full document is ",length(enc.encode(text))," tokens.")
+
     splitter = pyimport("langchain.text_splitter")
     text_splitter = splitter.RecursiveCharacterTextSplitter(
         # Set a really small chunk size, just to show.

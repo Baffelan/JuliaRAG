@@ -7,7 +7,8 @@ Creates and executes a query to an LLM.
 - `k::Int`: The number of nearest neighbours required
 """
 function query_llm(query::String, search_space::Tuple, k::Int)
-    query_embedding = get_embedding(query)
+    tiktoken = pyimport("tiktoken")
+    query_embedding = get_embedding_hf(query)
 
     idx, _ = knn(search_space[1], query_embedding, k)
     relevant_chunks = search_space[2][idx]
@@ -17,14 +18,23 @@ function query_llm(query::String, search_space::Tuple, k::Int)
     @pyexec (path=path)=>"""import sys
     # caution: path[0] is reserved for script path (or '' in REPL)
     sys.path.insert(1, path)
-
-    print(path)
     import model_setup
     model_setup
     """ => model_setup
     #model_setup = pyimport("model_setup")
-    model = model_setup.setup_chat_model(query, "gpt-4")
-    response = pyconvert(String, model(PyDict(Dict(pystr("question")=> pystr(relevant_text))))["text"])
+    model = model_setup.setup_chat_model(query, "gpt-4-1106-preview")
+    
+    output = model(PyDict(Dict(pystr("question")=> pystr(relevant_text))))
+    println(keys(pyconvert(Dict,output)))
+    enc = tiktoken.encoding_for_model("gpt-4-1106-preview")
+    println("Input is ",length(enc.encode(output["question"]))," tokens.")
+    response = pyconvert(String, output["text"])
+    println("Output is ",length(enc.encode(output["text"]))," tokens.")
+
+
+    CSV.write("token_use.csv", Tables.table(["input" length(enc.encode(output["question"])) "gpt-4-1106-preview"]), append=true)
+    CSV.write("token_use.csv", Tables.table(["output" length(enc.encode(output["text"])) "gpt-4-1106-preview"]), append=true)
+
 
     return response, relevant_chunks
 end

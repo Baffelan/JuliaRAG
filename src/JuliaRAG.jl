@@ -3,7 +3,8 @@ module JuliaRAG
     using CondaPkg
     using Distances
     using NearestNeighbors
-
+    using CSV
+    using Tables
     const pyglobals = PyDict()
     
     include("TextProcessing/get_embedding.jl")
