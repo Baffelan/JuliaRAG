@@ -6,12 +6,13 @@ Finds an embedding for a string.
 """
 function get_embedding_openai(text::String)
     tiktoken = pyimport("tiktoken")
-    enc = tiktoken.encoding_for_model("langchain.embeddings")
-    CSV.write("token_use.csv", Tables.table(["embedding" length(enc.encode(text)) "langchain.embeddings"]), append=true)
+    enc = tiktoken.encoding_for_model("text-embedding-ada-002")
+    CSV.write("token_use.csv", Tables.table(["embedding" length(enc.encode(text)) "text-embedding-ada-002"]), append=true)
 
     println("ping")
     embedder = pyimport("langchain.embeddings")
-    embedding = embedder.OpenAIEmbeddings().embed_query(text)
+    embedding = embedder.OpenAIEmbeddings(model="text-embedding-ada-002").embed_query(text)
+    #println(embedding)
     return pyconvert(Vector,embedding)
 end
 
