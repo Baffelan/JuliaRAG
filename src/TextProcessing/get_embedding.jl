@@ -5,6 +5,10 @@ Finds an embedding for a string.
 - `text::String`: Text for embedding.
 """
 function get_embedding_openai(text::String)
+    tiktoken = pyimport("tiktoken")
+    enc = tiktoken.encoding_for_model("langchain.embeddings")
+    CSV.write("token_use.csv", Tables.table(["embedding" length(enc.encode(text)) "langchain.embeddings"]), append=true)
+
     println("ping")
     embedder = pyimport("langchain.embeddings")
     embedding = embedder.OpenAIEmbeddings().embed_query(text)

@@ -8,7 +8,7 @@ Creates and executes a query to an LLM.
 """
 function query_llm(query::String, search_space::Tuple, k::Int)
     tiktoken = pyimport("tiktoken")
-    query_embedding = get_embedding_hf(query)
+    query_embedding = get_embedding_openai(query)
 
     idx, _ = knn(search_space[1], query_embedding, k)
     relevant_chunks = search_space[2][idx]
