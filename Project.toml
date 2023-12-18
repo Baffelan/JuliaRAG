@@ -1,7 +1,7 @@
 name = "JuliaRAG"
 uuid = "7fb97b74-f14f-400d-bab7-a2fb2c984d97"
 authors = ["Connor Smith"]
-version = "1.0.17-DEV"
+version = "1.0.18-DEV"
 
 [deps]
 CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"

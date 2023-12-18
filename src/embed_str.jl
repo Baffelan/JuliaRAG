@@ -3,13 +3,15 @@ Embeds a text in RAM for vector searching.
 
 # Arguments
 - `text::String`: Text to be embedded
+- `chunk_size::Int`: The number of characters for each chunk.
+- `overlap::Int`: The number of characters of overlap of the chunks.
 """
-function embed_str(text::String)
+function embed_str(text::String, chunk_size::Int, overlap::Int)
     splitter = pyimport("langchain.text_splitter")
     text_splitter = splitter.RecursiveCharacterTextSplitter(
         # Set a really small chunk size, just to show.
-        chunk_size = 1000,
-        chunk_overlap  = 100,
+        chunk_size = chunk_size,
+        chunk_overlap  = overlap,
         length_function = length,
         add_start_index = true,
     )

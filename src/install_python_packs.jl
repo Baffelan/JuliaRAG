@@ -21,6 +21,7 @@ function install_python_packs()
     os.system("pip install tiktoken")
     os.system("pip install openai")
     os.system("pip install sentence_transformers")
+    os.system("pip install pyxml2pdf")
 
     """
 end
